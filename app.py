@@ -16,12 +16,6 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.secret_key = "Kaleb"
 api = Api(app)
 
-# this will run before the app takes any request
-# this is based on the import statements
-@app.before_first_request
-def create_tables():
-    db.create_all()
-
 
 jwt = JWT(app, authenticate, identity)  # creates a new endpoint called '/auth'
 
